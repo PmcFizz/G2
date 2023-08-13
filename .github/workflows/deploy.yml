@@ -18,7 +18,7 @@ jobs:
       - uses: actions/upload-artifact@v2.1.3
         with:
            name: fizzartifact 
-           path: ./site/dist 
+           path: /site/dist 
       # - run: |
       #     cd site/dist
       #     git init
