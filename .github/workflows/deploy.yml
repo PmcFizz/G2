@@ -15,37 +15,20 @@ jobs:
       - run: cd site && yarn install
       - run: cd site && npm run build
       - run: cp ./site/CNAME ./site/dist/CNAME
-      name: Deploy
-
-on:
-  workflow_dispatch:
-  push:
-    branches:
-     - v5
-
-jobs:
-  deploy-site:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: yarn install
-      - run: cd site && yarn install
-      - run: cd site && npm run build
-      - run: cp ./site/CNAME ./site/dist/CNAME
       - uses: actions/upload-artifact@v2.1.3
         with:
-           name: artifact 
+           name: fizzartifact 
            path: ./site/dist 
-      - run: |
-          cd site/dist
-          git init
-          git config --local user.name antv
-          git config --local user.email antv@antfin.com
-          git add .
-          git commit -m "update by release action"
-      - uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-          directory: site/dist
-          branch: gh-pages
-          force: true
+      # - run: |
+      #     cd site/dist
+      #     git init
+      #     git config --local user.name antv
+      #     git config --local user.email antv@antfin.com
+      #     git add .
+      #     git commit -m "update by release action"
+      # - uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+      #     directory: site/dist
+      #     branch: gh-pages
+      #     force: true
