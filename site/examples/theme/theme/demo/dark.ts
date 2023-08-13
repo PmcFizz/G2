@@ -1,5 +1,5 @@
 /**
- * A recreation of this demo: https://nivo.rocks/pie/
+ * A recreation of this demo: https://nivo.rocks/pie/11
  */
 import { Chart } from '@antv/g2';
 
