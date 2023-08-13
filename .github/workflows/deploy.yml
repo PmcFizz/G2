@@ -21,6 +21,7 @@ jobs:
         with:
            name: 11222
            path: site/dist
+      - run: cd site && ls -l
   
       # - uses: actions/upload-artifact@v2.1.3
       #   with:
